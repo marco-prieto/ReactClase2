@@ -50,6 +50,33 @@ import Curso from './Curso'
   </>
 ) */
 
+const cursos = [
+  {
+    "title": "React desde cero",
+    "imagen": "https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "price": 30,
+    "profesor": "Beto el coqueto"
+  },
+  {
+    "title": "Go desde cero",
+    "imagen": "https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "price": 20,
+    "profesor": "Richard Textex"
+  },
+  {
+    "title": "Javascript desde cero",
+    "imagen": "https://images.pexels.com/photos/2740954/pexels-photo-2740954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "price": 40,
+    "profesor": "Juanfra Bot"
+  },
+  {
+    "title": "Python desde cero",
+    "imagen": "https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "price": 44,
+    "profesor": "Alfred Goy"
+  }
+  
+]
 const App = () => (
   <Fragment>   
       <section className="main-banner img-container l-section s-py-4">  
@@ -73,11 +100,26 @@ const App = () => (
         </div>
       </section>    
     <div className="ed-grid m-grid-3">
-      <Curso/>
-      <Curso/>
-      <Curso/>
-      <Curso/>
-      <Curso/>      
+      {/* <Curso 
+        title="React desde cero" 
+        imagen="https://images.pexels.com/photos/2740954/pexels-photo-2740954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" price={20} 
+        profesor="Carlito"/>
+      <Curso 
+        title="Diseño"         
+        profesor="Ramiro"/>
+      <Curso 
+        title="Creativity" 
+        imagen="https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" price={10}
+        profesor="Albert" />
+      <Curso/>         */}   
+      {
+        cursos.map(
+          cur => <Curso 
+          title={cur.title}
+          profesor={cur.profesor}
+          imagen = {cur.imagen}
+          price = {cur.price} />)
+      }
     </div>
   </Fragment>
 )
