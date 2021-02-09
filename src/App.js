@@ -59,7 +59,7 @@ const cursos = [
   },
   {
     "title": "Go desde cero",
-    "imagen": "https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "imagen": "https://images.pexels.com/photos/2252557/pexels-photo-2252557.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     "price": 20,
     "profesor": "Richard Textex"
   },
@@ -71,7 +71,7 @@ const cursos = [
   },
   {
     "title": "Python desde cero",
-    "imagen": "https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "imagen": "https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     "price": 44,
     "profesor": "Alfred Goy"
   }
