@@ -4,6 +4,8 @@ import "./styles/styles.scss"
 //aca el profe tiene este import
 import React,{Fragment} from 'react'
 import Curso from './Curso'
+import Banner from './Banner'
+import Formulario from './Formulario'
 
 /* function App() {
   return (
@@ -74,31 +76,13 @@ const cursos = [
     "imagen": "https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     "price": 44,
     "profesor": "Alfred Goy"
-  }
-  
+  }  
 ]
+
 const App = () => (
   <Fragment>   
-      <section className="main-banner img-container l-section s-py-4">  
-        <div className="ed-grid lg-grid-2 row-gap s-gap-2 m-gap-4">
-          
-          <div className="s-column s-main-center lg-main-start lg-cross-start s-center lg-left">
-            <h1>Cursos Online</h1>
-            <p>Empieza a estudiar ya mismo!</p>
-            
-            <div className="s-main-center">
-              <a className="button s-mr-2 s-mb-2 m-mb-0" href="https://www.facebook.com/ztknatsu/" target="_blank">Facebook</a>
-              <a className="button s-mb-2 m-mb-0" href="https://www.instagram.com/prieto_marco/" target="_blank">Instagram</a>
-            </div>
-          </div>
-          
-          <div>
-            <div className="img-container s-ratio-16-9">
-              <img className="s-radius-1" src="https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"/>
-            </div>
-          </div>
-        </div>
-      </section>    
+      <Banner/>
+      <Formulario name="aea"/>
     <div className="ed-grid m-grid-3">
       {/* <Curso 
         title="React desde cero" 
@@ -112,6 +96,7 @@ const App = () => (
         imagen="https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" price={10}
         profesor="Albert" />
       <Curso/>         */}   
+
       {
         cursos.map(
           cur => <Curso 
@@ -120,6 +105,7 @@ const App = () => (
           imagen = {cur.imagen}
           price = {cur.price} />)
       }
+      
     </div>
   </Fragment>
 )
