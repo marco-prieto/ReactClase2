@@ -6,6 +6,9 @@ import React,{Fragment} from 'react'
 import Curso from './Curso'
 import Banner from './Banner'
 import Formulario from './Formulario'
+import CourseGrid from "./CourseGrid"
+import DetalleCurso from './DetalleCurso'
+import {BrowserRouter as Router,Route,Switch} from "react-router-dom"
 
 /* function App() {
   return (
@@ -52,7 +55,7 @@ import Formulario from './Formulario'
   </>
 ) */
 
-const cursos = [
+/* const cursos = [
   {
     "title": "React desde cero",
     "imagen": "https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
@@ -77,12 +80,28 @@ const cursos = [
     "price": 44,
     "profesor": "Alfred Goy"
   }  
-]
+] */
 
+//ya no sera fragment ahora sera router papu
+//exact es booleano significa q la ruta es exacta y es pal home usualemnte
 const App = () => (
-  <Fragment>   
-      <Banner/>
-      <Formulario name="aea"/>
+  <Router>   
+  {/* <Fragment> */}   
+      <Switch>
+          <Route path="/" exact component={Banner}/>
+          {/* cursos id va primero xq como es un switch agarraria primero el sin id si estuviera adelante un numerito ... tu te entiendes con fe */}
+          <Route path="/cursos/:id" component={DetalleCurso}/>
+          <Route path="/cursos"  component={CourseGrid}/>
+          <Route path="/formulario"  component={()=> <Formulario name="Pagina de Contacto"/>}></Route>
+          <Route component={() => (
+            <div className="ed-grid">
+              <h1>Error 404</h1>
+              <span>Pagina no encontrada</span>
+            </div>
+          )}/>
+      </Switch>
+      {/* <Banner/>
+      <Formulario name="aea"/> */}
     <div className="ed-grid m-grid-3">
       {/* <Curso 
         title="React desde cero" 
@@ -97,17 +116,19 @@ const App = () => (
         profesor="Albert" />
       <Curso/>         */}   
 
-      {
+      {/* {
         cursos.map(
           cur => <Curso 
           title={cur.title}
           profesor={cur.profesor}
           imagen = {cur.imagen}
           price = {cur.price} />)
-      }
+      } */}
       
     </div>
-  </Fragment>
+    {/* <CourseGrid/> */}
+  {/* </Fragment> */}
+  </Router>
 )
 
 
