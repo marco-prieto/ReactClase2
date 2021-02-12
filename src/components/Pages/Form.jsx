@@ -3,7 +3,7 @@ import React,{Component} from 'react'
 //aca el render es el gozu
 //render pa retornar
 //state el estado para trabajar dinamicamente
-class Formulario extends Component {
+class Form extends Component {
 
     constructor(props) {
         super(props)
@@ -98,4 +98,4 @@ class Formulario extends Component {
 
 }
 
-export default Formulario
+export default Form

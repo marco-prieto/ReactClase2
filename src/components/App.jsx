@@ -1,13 +1,14 @@
 /* import logo from './logo.svg'; */
-import "./styles/styles.scss"
+import "../styles/styles.scss"
 /* import './App.css'; */
 //aca el profe tiene este import
 import React,{Fragment} from 'react'
-import Curso from './Curso'
-import Banner from './Banner'
-import Formulario from './Formulario'
-import CourseGrid from "./CourseGrid"
-import DetalleCurso from './DetalleCurso'
+import Home from './Pages/Home'
+import Form from './Pages/Form'
+import CourseGrid from "./Organisms/CourseGrid"
+import MainMenu from "./Organisms/MainMenu"
+import History from "./Pages/History"
+import CourseDetail from './Pages/CourseDetail'
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom"
 
 /* function App() {
@@ -87,12 +88,16 @@ import {BrowserRouter as Router,Route,Switch} from "react-router-dom"
 const App = () => (
   <Router>   
   {/* <Fragment> */}   
+      <MainMenu/>
       <Switch>
-          <Route path="/" exact component={Banner}/>
+          <Route path="/" exact component={Home}/>
           {/* cursos id va primero xq como es un switch agarraria primero el sin id si estuviera adelante un numerito ... tu te entiendes con fe */}
-          <Route path="/cursos/:id" component={DetalleCurso}/>
+          {/* luego de cursos/:id puede ser cualquier cosa y el match del componente ya lo captura */}
+          <Route path="/cursos/:id" component={CourseDetail}/>
           <Route path="/cursos"  component={CourseGrid}/>
-          <Route path="/formulario"  component={()=> <Formulario name="Pagina de Contacto"/>}></Route>
+          <Route path="/formulario"  component={()=> <Form name="Pagina de Contacto"/>}></Route>
+          <Route path="/historial/:valor"  component={()=> <History name="Pagina de Contacto"/>}></Route>
+          <Route path="/historial"  component={()=> <History name="Pagina de Contacto"/>}></Route>
           <Route component={() => (
             <div className="ed-grid">
               <h1>Error 404</h1>

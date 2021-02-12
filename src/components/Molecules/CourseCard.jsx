@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from "react-router-dom"
 //{} para q imprima html
 //src className son propiedades
 
@@ -16,10 +17,12 @@ const mayorEdad = edad => edad >= 18
 //aca en el sgt tendria q poner props.imagen , props.title  y asi ..
 /* const Curso = props => ( */ 
 //con este ultimo ya nos ahorramos la fatiga de escribir props
-const Curso = ({title,imagen,price,profesor}) => (
+const CourseCard = ({id,title,imagen,price,profesor}) => (
   <article className="s-shadow-bottom" id="title">    
     <div className="s-ratio-16-9 img-container s-radius-tl s-radius-tr">
-    <img src={imagen} alt={title}/>
+    <Link to={`/Cursos/${id}`}>
+      <img src={imagen} alt={title}/>
+    </Link>
     {/* {
       imagen
       ? <img src={imagen} alt={title}/>
@@ -50,16 +53,16 @@ const Curso = ({title,imagen,price,profesor}) => (
   </article>
 )
 //c puede esperar otros tipos no solo string
-Curso.propTypes = {
+CourseCard.propTypes = {
     title: PropTypes.string,
     imagen: PropTypes.string,
     price: PropTypes.number,
     profesor: PropTypes.string,
 }
-Curso.defaultProps = {
+CourseCard.defaultProps = {
     title: "Inserte Titulo",
     imagen: "https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     price: 20,
     profesor: "Tu puedes ser tu profesor"
 }
-export default Curso
+export default CourseCard
