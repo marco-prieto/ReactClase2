@@ -6,9 +6,7 @@ const CourseGrid = ({courses}) => (
 
     <div className="ed-grid m-grid-4">
         {
-            courses.length === 0 
-            ? <h1 className="t3">Cargando...</h1>
-            : courses.map(c => 
+            courses.map(c => 
               <CourseCard 
               key={c.id} 
               id={c.id}
@@ -16,10 +14,10 @@ const CourseGrid = ({courses}) => (
               imagen={c.imagen}
               price={c.price}
               profesor={c.profesor}
-              />)
+            />)
         }
       </div>
 )
 
 
-export default withLoader(CourseGrid)
+export default withLoader("courses")(CourseGrid)
