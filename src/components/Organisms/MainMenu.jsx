@@ -37,14 +37,14 @@ const MainMenu = () =>(
                     <span>Formulario</span>
                 </NavLink>
                 </li>
-                {/* <li>
-                <a className="link s-column s-cross-center" href="#">
+                <li>
+                <NavLink className="link s-column s-cross-center" to="/usuarios">
                     <svg className="icon to-lg s-mb-0">
                     <use href="#notes"></use>
                     </svg>
-                    <span>Notas</span>
-                </a>
-                </li> */}
+                    <span>Usuarios</span>
+                </NavLink>
+                </li>
             </ul>
             </nav>
         </div>

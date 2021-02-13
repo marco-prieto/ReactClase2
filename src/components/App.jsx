@@ -5,11 +5,12 @@ import "../styles/styles.scss"
 import React,{Fragment} from 'react'
 import Home from './Pages/Home'
 import Form from './Pages/Form'
-import CourseGrid from "./Organisms/CourseGrid"
+import Courses from "./Pages/Courses"
 import MainMenu from "./Organisms/MainMenu"
 import History from "./Pages/History"
 import CourseDetail from './Pages/CourseDetail'
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom"
+import Users from '../components/Pages/Users'
 
 /* function App() {
   return (
@@ -94,7 +95,8 @@ const App = () => (
           {/* cursos id va primero xq como es un switch agarraria primero el sin id si estuviera adelante un numerito ... tu te entiendes con fe */}
           {/* luego de cursos/:id puede ser cualquier cosa y el match del componente ya lo captura */}
           <Route path="/cursos/:id" component={CourseDetail}/>
-          <Route path="/cursos"  component={CourseGrid}/>
+          <Route path="/cursos"  component={Courses}/>
+          <Route path="/usuarios"  component={Users}/>
           <Route path="/formulario"  component={()=> <Form name="Pagina de Contacto"/>}></Route>
           <Route path="/historial/:valor"  component={()=> <History name="Pagina de Contacto"/>}></Route>
           <Route path="/historial"  component={()=> <History name="Pagina de Contacto"/>}></Route>
