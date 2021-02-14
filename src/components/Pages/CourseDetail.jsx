@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react"
 import axios from 'axios'
+import useCourse from "../CustomHooks/useCourse"
 
 
 /* const courses = [
@@ -58,13 +59,19 @@ const CourseDetail = ({match}) => {
     //forma del profe como pa ver variantes  y entender un poco mas la sintaxis
 
     //el 2do estado y el 2do es un colback (los nombres con fines didacticos puedo darle cualquier nombre a la variable)
-    const [course, setCourse] = useState({})
+
+
+    /* const [course, setCourse] = useState({}) */
     const [comment,setComment] = useState("Sin comentarios")
+    const [course,setCourse] = useCourse(match.params.id)
+
     //cada vez q el componente se renderize useEffect funca
-    useEffect(() => {
-        
+
+    /* useEffect(() => {        
         axios.get(`http://my-json-server.typicode.com/marco-prieto/json-db/cursos/${match.params.id}`).then(resp => setCourse(resp.data))
-    },[])
+    },[]) */
+
+
     //ese 2do parametro es para q no  c produzca infinitamente el useEffect
 
     const changeTitle = (text) => {
@@ -75,6 +82,7 @@ const CourseDetail = ({match}) => {
             }
         )
     }
+    
     const myComment = e => {
         setComment(e.target.value)
     }
