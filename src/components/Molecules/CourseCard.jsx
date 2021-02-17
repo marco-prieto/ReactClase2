@@ -19,7 +19,7 @@ const mayorEdad = edad => edad >= 18
 //aca en el sgt tendria q poner props.imagen , props.title  y asi ..
 /* const Curso = props => ( */ 
 //con este ultimo ya nos ahorramos la fatiga de escribir props
-const CourseCard = ({id,title,imagen,price,profesor,addCourseToCart}) => (
+const CourseCard = ({id,title,imagen,price,profesor,addCourseToCart,cart}) => (
   <article className="s-shadow-bottom" id="title">    
     <div className="s-ratio-16-9 img-container s-radius-tl s-radius-tr">
     <Link to={`/Cursos/${id}`}>
@@ -54,8 +54,10 @@ const CourseCard = ({id,title,imagen,price,profesor,addCourseToCart}) => (
       <button 
         className="button"
         onClick={() => addCourseToCart(id)}
-        >{`$${price} USD`
-      }</button>
+        >{ cart.find(a => a === id) 
+         ? `Sacar del carrito`
+         : `$${price} USD`}
+        </button>
     </div>
     </footer> 
   </article>
@@ -75,7 +77,9 @@ CourseCard.defaultProps = {
 }
 
 //este papi recibe el estado
-const mapStateToProps = () => ({})
+const mapStateToProps = state => ({
+  cart: state.cart
+})
 
 //mapeo al dispatch y lo convierte en propiedades
 const mapDispatchToProps = dispatch => ({
