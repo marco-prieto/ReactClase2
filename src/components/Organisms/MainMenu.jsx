@@ -1,5 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import CartCounter from '../Atoms/CartCounter'
 
 const MainMenu = () =>(
     <header className="ed-header s-bg-grey s-py-2">
@@ -45,6 +46,7 @@ const MainMenu = () =>(
                     <span>Usuarios</span>
                 </NavLink>
                 </li>
+                <CartCounter/>
             </ul>
             </nav>
         </div>

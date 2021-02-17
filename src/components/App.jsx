@@ -1,4 +1,5 @@
 /* import logo from './logo.svg'; */
+import React from 'react'
 import "../styles/styles.scss"
 /* import './App.css'; */
 //aca el profe tiene este import
