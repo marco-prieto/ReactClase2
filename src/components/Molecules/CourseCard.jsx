@@ -49,10 +49,11 @@ const CourseCard = ({id,title,imagen,price,profesor,addCourseToCart,cart}) => (
     <footer className="s-cross-center s-bg-grey s-pxy-2 s-radius-br s-radius-bl">
     <h4>
       {`Profe: ${profesor}`}
-    </h4>        
-    <div>
+    </h4>   
+    <br/>     
+    <div className="button s-to-right">
       <button 
-        className="button"
+        className="button button s-to-right"
         onClick={() => addCourseToCart(id)}
         >{ cart.find(a => a === id) 
          ? `Sacar del carrito`

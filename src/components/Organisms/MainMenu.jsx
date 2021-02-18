@@ -38,7 +38,7 @@ const MainMenu = () =>(
                     <span>Formulario</span>
                 </NavLink>
                 </li>
-                <li>
+                <li className="lg-mr-3">
                 <NavLink className="link s-column s-cross-center" to="/usuarios">
                     <svg className="icon to-lg s-mb-0">
                     <use href="#notes"></use>
