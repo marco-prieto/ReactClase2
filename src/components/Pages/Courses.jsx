@@ -1,7 +1,8 @@
 import React from "react"
-import CourseCard from '../Molecules/CourseCard'
+/* import CourseCard from '../Molecules/CourseCard' */
 import CourseGrid from '../Organisms/CourseGrid'
-import axios from 'axios'
+import {connect} from 'react-redux'
+/* import axios from 'axios' */
 
 /* const courses = [
     {
@@ -33,8 +34,11 @@ import axios from 'axios'
       "profesor": "Alfred Goy"
     }  
 ] */
-class Courses extends React.Component {
+
+
+/* class Courses extends React.Component {
   
+  //AHORA VAMOS A SACAR TODO DEL STORE AHI HAREMOS LA PETICION  
   constructor(props){
     super(props)
 
@@ -52,5 +56,14 @@ class Courses extends React.Component {
     const {courses} = this.state
     return <CourseGrid courses={courses}/>
   }
-}
-export default Courses
+} */
+
+const Courses = ({courses}) => <CourseGrid courses={courses}/>
+
+const mapStateToProps = state => (
+  {
+    courses: state.coursesReducer.courses
+  }
+)
+//vacio xq no usare el mapdispatch
+export default connect(mapStateToProps,{})(Courses)

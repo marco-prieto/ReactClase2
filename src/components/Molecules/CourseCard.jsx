@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from "react-router-dom"
-import { addToCart } from '../../redux/actionCreators'
+import { addToCart,deleteFromCart } from '../../redux/actionCreators'
 import {connect} from 'react-redux'
 //{} para q imprima html
 //src className son propiedades
@@ -19,7 +19,7 @@ const mayorEdad = edad => edad >= 18
 //aca en el sgt tendria q poner props.imagen , props.title  y asi ..
 /* const Curso = props => ( */ 
 //con este ultimo ya nos ahorramos la fatiga de escribir props
-const CourseCard = ({id,title,imagen,price,profesor,addCourseToCart,cart}) => (
+const CourseCard = ({id,title,imagen,price,profesor,addCourseToCart,cart,deleteCourseFromCart}) => (
   <article className="s-shadow-bottom" id="title">    
     <div className="s-ratio-16-9 img-container s-radius-tl s-radius-tr">
     <Link to={`/Cursos/${id}`}>
@@ -52,13 +52,19 @@ const CourseCard = ({id,title,imagen,price,profesor,addCourseToCart,cart}) => (
     </h4>   
     <br/>     
     <div className="button s-to-right">
-      <button 
+      {
+        cart.find(a => a === id) ?
+        <button 
+        className="button button s-to-right"
+        onClick={() => deleteCourseFromCart(id)}
+        >Remover del carrito       
+        </button> 
+        : <button 
         className="button button s-to-right"
         onClick={() => addCourseToCart(id)}
-        >{ cart.find(a => a === id) 
-         ? `Sacar del carrito`
-         : `$${price} USD`}
+        >{ `$${price} USD`}         
         </button>
+      }      
     </div>
     </footer> 
   </article>
@@ -79,13 +85,16 @@ CourseCard.defaultProps = {
 
 //este papi recibe el estado
 const mapStateToProps = state => ({
-  cart: state.cart
+  cart: state.rootReducer.cart
 })
 
 //mapeo al dispatch y lo convierte en propiedades
 const mapDispatchToProps = dispatch => ({
   addCourseToCart (id){
     dispatch(addToCart(id))
+  },
+  deleteCourseFromCart(id){
+    dispatch(deleteFromCart(id))
   }
 })
 
