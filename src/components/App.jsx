@@ -15,6 +15,7 @@ import Users from '../components/Pages/Users' */
 import {Provider} from 'react-redux'
 import AppRoutes from './AppRoutes'
 import store from '../redux/store'
+import {getCourseList} from '../redux/actionCreators'
 
 /* function App() {
   return (
@@ -90,6 +91,10 @@ import store from '../redux/store'
 
 //ya no sera fragment ahora sera router papu
 //exact es booleano significa q la ruta es exacta y es pal home usualemnte
+
+//ACA EJECUTO MI DISPATCH PA Q SE LLAME A OBTENER CURSOS EN ONE
+store.dispatch(getCourseList())
+
 const App = () => (
   <Provider store={store}>
     <AppRoutes/>

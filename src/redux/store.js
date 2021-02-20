@@ -1,6 +1,7 @@
-import { combineReducers, createStore } from 'redux'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { ADD_TO_CART,DELETE_FROM_CART } from './actions'
+import { ADD_TO_CART,DELETE_FROM_CART,GET_COURSE_LIST } from './actions'
+import thunk from 'redux-thunk'
 
 
 const initialStore = {
@@ -8,37 +9,10 @@ const initialStore = {
 }
 
 const initialCourses = {
-    courses: [{
-        "id" : 1,
-      "title": "React desde cero",
-      "imagen": "https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      "price": 30,
-      "profesor": "Beto el coqueto"
-    },
-    {
-        "id": 2,
-      "title": "Go desde cero",
-      "imagen": "https://images.pexels.com/photos/2252557/pexels-photo-2252557.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      "price": 20,
-      "profesor": "Richard Textex"
-    },
-    { 
-        "id" : 3,
-      "title": "Javascript desde cero",
-      "imagen": "https://images.pexels.com/photos/2740954/pexels-photo-2740954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      "price": 40,
-      "profesor": "Juanfra Bot"
-    },
-    {
-        "id":4,
-      "title": "Python desde cero",
-      "imagen": "https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "price": 44,
-      "profesor": "Alfred Goy"
-    }]
+    courses: []
 }
 //sea cual sea el dispatch q suceda el reducer lo recibe
-const rootReducer = (state = initialStore,{id,type}) => {
+const cartReducer = (state = initialStore,{id,type}) => {
     
 
     if(type === ADD_TO_CART){
@@ -60,7 +34,17 @@ const rootReducer = (state = initialStore,{id,type}) => {
 }
 
 const coursesReducer = (state = initialCourses,action) => {
+    if(action.type === GET_COURSE_LIST) {
+        return {
+            ...state,
+            courses: action.courses
+        }
+    }
     return state
 }
 //ese combine es pa agregar mas de un reducer y tienee q estar en un objeto
-export default createStore(combineReducers({rootReducer,coursesReducer}),composeWithDevTools())
+//thunk para peticiones asincronas
+/* export default createStore(combineReducers({cartReducer,coursesReducer}),composeWithDevTools()) */
+
+
+export default createStore(combineReducers({cartReducer,coursesReducer}),composeWithDevTools(applyMiddleware(thunk)))

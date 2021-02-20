@@ -84,8 +84,9 @@ CourseCard.defaultProps = {
 }
 
 //este papi recibe el estado
+//middleware
 const mapStateToProps = state => ({
-  cart: state.rootReducer.cart
+  cart: state.cartReducer.cart
 })
 
 //mapeo al dispatch y lo convierte en propiedades

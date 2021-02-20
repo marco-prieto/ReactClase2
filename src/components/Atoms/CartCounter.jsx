@@ -21,7 +21,7 @@ const CartCounter = ({cartLength}) => (
 //mapear el estado global de mi app y pasarle a este componente(CartCounter) lo q yo quiera x props
 const mapStateToProps = state => (
     {
-        cartLength: state.rootReducer.cart
+        cartLength: state.cartReducer.cart
     }
 )
 const mapDispatchToProps = () => {
